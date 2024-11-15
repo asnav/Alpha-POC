@@ -44,17 +44,39 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.ktor.client.okhttp)
+            implementation(libs.androidx.core.ktx)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(projects.shared)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.kotlinx.coroutines.core)
+        }
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.js)
+        }
+
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+            implementation(libs.ktor.client.mock)
+        }
+
+        androidInstrumentedTest.dependencies {
+            implementation(libs.androidx.core)
+        }
+
+        wasmJsTest.dependencies {
+            // add
         }
     }
 }
@@ -89,4 +111,3 @@ android {
 dependencies {
     debugImplementation(compose.uiTooling)
 }
-
