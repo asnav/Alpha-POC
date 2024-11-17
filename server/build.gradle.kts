@@ -29,8 +29,9 @@ dependencies {
 
     // For JSON serialization (Kotlinx serialization)
     implementation(libs.kotlinx.serialization.json)
-    implementation(project(":shared"))
 
     // For key store handling
     implementation(libs.kotlin.stdlib.jdk8) // Basic Kotlin stdlib
+
+    implementation(project(":shared"))
 }
